@@ -54,7 +54,12 @@ button {
 }
 
 .counter {
-  background: #00FFFF;
-  content: "sfasdf"
+  /* background: #00FFFF; */
+  color: #545149;
 }
+
+.negative-counter {
+  color: red;
+}
+
 
