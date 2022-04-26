@@ -26,8 +26,21 @@ body {
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-nav {
-  font-family: 'Bungee', sans-serif;
+main {
+  width: 90%;
+  /* display: flex;
+  justify-content: center;
+  flex-direction: row; */
+  background-color: #f4f1ec;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
