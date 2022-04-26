@@ -27,7 +27,6 @@
 }
 
 .form-inline {
-
   width: 100%;
 
   display: flex;
@@ -52,5 +51,10 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.counter {
+  background: #00FFFF;
+  content: "sfasdf"
 }
 
