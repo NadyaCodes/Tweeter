@@ -15,6 +15,7 @@
     <!-- Add Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
@@ -70,7 +71,14 @@
       </section>
       <section class="tweets">
         <article>
-          <header>I said: </header>
+          <header>
+            <div class="tweet-head-left">
+              <div><i class="fa-solid fa-dragon"></i></div>
+              <div>I said: </div>
+            </div>
+            <div class="username">@username</div>
+          </header>
+
           <p class="tweet">This is what I said</p>
           <footer>How long ago things were said and icons</footer>
         </article>

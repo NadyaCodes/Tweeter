@@ -16,7 +16,31 @@
   background-color: #f4f1ec;
   background-image: none;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  /* align-items: flex-start; */
+  /* justify-content: flex-start; */
+}
+
+article header {
+  width: 100%;
+  padding: .5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div.tweet-head-left {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.username {
+  display: flex;
+  justify-content: flex-end;
+  color: #aeadc2;
+}
+
+.fa-dragon {
+  padding-right: .5em;
 }
 
