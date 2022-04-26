@@ -33,9 +33,9 @@ body {
 
 main {
   width: 90%;
-  /* display: flex;
+  display: flex;
   justify-content: center;
-  flex-direction: row; */
+  flex-direction: column;
   background-color: #f4f1ec;
 }
 
