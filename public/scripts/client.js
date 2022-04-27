@@ -35,7 +35,6 @@ $(document).ready(function() {
 
 
   const createTweetElement = function(tweetObj) {
-
     const person = {
       name: tweetObj.user.name,
       username: tweetObj.user.handle,
@@ -76,5 +75,25 @@ $(document).ready(function() {
   };
 
   renderTweets(data);
+  
 
+  const submitTweet = function(event) {
+    event.preventDefault();
+
+    const formData = $(this).serialize();
+
+    $.ajax({
+      method: "POST",
+      data: formData,
+      url: "/tweets",
+    })
+
+      // .then((res) => createTweetElement(res))
+      // .catch((error) = console.log(error))
+
+      console.log(formData)
+    
+  }
+
+  $(".form-inline").submit(submitTweet);
 });
