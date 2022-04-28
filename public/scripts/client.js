@@ -40,13 +40,22 @@ $(document).ready(function() {
 
 
   const createTweetElement = function(tweetObj) {
+
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+    
     const person = {
       name: tweetObj.user.name,
       username: tweetObj.user.handle,
-      "single-tweet": tweetObj.content.text,
+      "single-tweet": escape(tweetObj.content.text),
       "date-posted": timeago.format(tweetObj.created_at, 'pt_BR'),
       "small-avatar": tweetObj.user.avatars
     };
+
+
 
     const markup = `
     <article>
@@ -109,39 +118,18 @@ $(document).ready(function() {
       return;
     }
 
-    // $.ajax({
-    //   method: "POST",
-    //   data: formData,
-    //   url: "/tweets",
-      
-    // })
-
-
-
-
     $.ajax({
       method: "POST",
       data: formData,
       url: "/tweets",
     }).then(() => {
-      // console.log("hi")
       $.ajax('./tweets', { method: 'GET' })
       .then(function (data) {
-        // console.log("data, ", data[data.length - 1])
         const newTweet = createTweetElement(data[data.length - 1])
         $('#tweets-container').prepend(newTweet)
       })
       .catch((err) => console.log(err));
     })
-
-    // $.ajax('./tweets', { method: 'GET' })
-    // .then(function (data) {
-    //   $('#tweets-container').prepend(data[0])
-    // })
-    // .catch((err) => console.log(err));
-
-    // $('#tweets-container').prepend("newTweet");
-    // $(".form-inline").append() 
 
 
   }
