@@ -4,11 +4,10 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// const { json } = require("express/lib/response");
 
 
 //sets up time ago
-var locale = function(number, index, totalSec) {
+const locale = function(number, index, totalSec) {
   // number: the time ago / time in number;
   // index: the index of array below;
   // totalSec: total seconds between date to be formatted and today's date;
@@ -29,19 +28,16 @@ var locale = function(number, index, totalSec) {
     ['%s years ago', 'in %s years']
   ][index];
 };
+
 timeago.register('pt_BR', locale);
 
 
-//functions for document
+//Tweeting Functions
 $(document).ready(function() {
   
-  console.log("client is ready");
-
-
-
   const createTweetElement = function(tweetObj) {
 
-    const escape = function (str) {
+    const escape = function(str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
@@ -54,8 +50,6 @@ $(document).ready(function() {
       "date-posted": timeago.format(tweetObj.created_at, 'pt_BR'),
       "small-avatar": tweetObj.user.avatars
     };
-
-
 
     const markup = `
     <article>
@@ -91,39 +85,39 @@ $(document).ready(function() {
   };
 
 
-  const loadTweets = function () {
+  const loadTweets = function() {
     $.ajax('./tweets', { method: 'GET' })
-    .then(function (data) {
-      renderTweets(data)
-    })
-    .catch((err) => console.log(err));
-  }
+      .then(function(data) {
+        renderTweets(data);
+      })
+      .catch((err) => console.log(err));
+  };
 
-  loadTweets()
+  loadTweets();
 
 
   const submitTweet = function(event) {
     event.preventDefault();
     const formData = $(this).serialize();
     const decodedData = decodeURI(formData);
-    const entryText = decodedData.slice(5)
+    const entryText = decodedData.slice(5);
 
-    $( ".input-error" ).remove();
+    $(".input-error").remove();
 
-    const containerLocation = "body > main > section.new-tweet > form"
+    const containerLocation = "body > main > section.new-tweet > form";
 
     const errorMessage = function(message) {
-      return `<div class="input-error"><i class="fa-solid fa-triangle-exclamation"></i>${message}<i class="fa-solid fa-triangle-exclamation"></i></div>`
-    }
+      return `<div class="input-error"><i class="fa-solid fa-triangle-exclamation"></i>${message}<i class="fa-solid fa-triangle-exclamation"></i></div>`;
+    };
 
     if (entryText.length > 140) {
-      const tooLongMessage = errorMessage("You write too much. Please keep your thoughts to 140 characters or less.")
+      const tooLongMessage = errorMessage("You write too much. Please keep your thoughts to 140 characters or less.");
       $(tooLongMessage).prependTo(containerLocation).hide().slideDown();
       return;
-    } 
+    }
     
     if (!entryText) {
-      const noTextMessage = errorMessage('You can\'t say "NOTHING". Please write at least one character.')
+      const noTextMessage = errorMessage('You can\'t say "NOTHING". Please write at least one character.');
       $(noTextMessage).prependTo(containerLocation).hide().slideDown();
       return;
     }
@@ -134,19 +128,19 @@ $(document).ready(function() {
       url: "/tweets",
     }).then(() => {
       $.ajax('./tweets', { method: 'GET' })
-      .then(function (data) {
-        const newTweet = createTweetElement(data[data.length - 1])
-        $('#tweets-container').prepend(newTweet)
-        $('#tweet-text').val('')
-        $('.counter').val(140)
-      })
-      .catch((err) => console.log(err));
-    })
+        .then(function(data) {
+          const newTweet = createTweetElement(data[data.length - 1]);
+          $('#tweets-container').prepend(newTweet);
+          $('#tweet-text').val('');
+          $('.counter').val(140);
+        })
+        .catch((err) => console.log(err));
+    });
 
 
-  }
+  };
 
 
-  $(".form-inline").submit(submitTweet)
+  $(".form-inline").submit(submitTweet);
 
 });
