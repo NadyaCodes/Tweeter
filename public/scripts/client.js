@@ -110,19 +110,21 @@ $(document).ready(function() {
 
     $( ".input-error" ).remove();
 
-    const errorContainer = "body > main > section.new-tweet > form"
+    const containerLocation = "body > main > section.new-tweet > form"
 
     const errorMessage = function(message) {
       return `<div class="input-error"><i class="fa-solid fa-triangle-exclamation"></i>${message}<i class="fa-solid fa-triangle-exclamation"></i></div>`
     }
 
     if (entryText.length > 140) {
-      $(errorContainer).prepend(errorMessage("You write too much. Please keep your thoughts to 140 characters or less."));
+      const tooLongMessage = errorMessage("You write too much. Please keep your thoughts to 140 characters or less.")
+      $(tooLongMessage).prependTo(containerLocation).hide().slideDown();
       return;
     } 
     
     if (!entryText) {
-      $(errorContainer).prepend(errorMessage('You can\'t say "NOTHING". Please write at least one character.'));
+      const noTextMessage = errorMessage('You can\'t say "NOTHING". Please write at least one character.')
+      $(noTextMessage).prependTo(containerLocation).hide().slideDown();
       return;
     }
 

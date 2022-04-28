@@ -69,8 +69,8 @@ div.input-error {
   font-size: .7em;
   color: #000000;
   background-color: #fba1a1;
-  /* border-: 2px; */
   display: flex;
   justify-content: space-around;
-  /* align-items: center; */
+  flex-direction: row;
+
 }

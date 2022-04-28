@@ -42,10 +42,6 @@ div.tweet-head-left {
   height: 90px;
   padding-bottom: .5em;
   margin-right: 0.5em;
-  /* border-style: solid;
-  border-width: 1px;
-  border-color: #545149;
-  border-radius: 50%; */
   display: flex;
   justify-content: flex-start;
 }
