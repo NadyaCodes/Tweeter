@@ -63,6 +63,8 @@ div.tweet-head-left {
   border-style: solid;
   border-width: 0 0 3px;
   font-weight: 600;
+  width: 100%;
+  overflow-wrap: break-word;
 }
 
 

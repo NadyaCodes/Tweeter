@@ -62,6 +62,15 @@ button {
   color: red;
 }
 
-.input-error {
-  background-color: red;
+div.input-error {
+  margin: 2em;
+  padding: .5em;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: .7em;
+  color: #000000;
+  background-color: #fba1a1;
+  /* border-: 2px; */
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
 }

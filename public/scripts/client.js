@@ -105,14 +105,15 @@ $(document).ready(function() {
   const submitTweet = function(event) {
     event.preventDefault();
     const formData = $(this).serialize();
-    const entryText = formData.slice(5)
+    const decodedData = decodeURI(formData);
+    const entryText = decodedData.slice(5)
 
     $( ".input-error" ).remove();
 
     const errorContainer = "body > main > section.new-tweet > form"
 
     const errorMessage = function(message) {
-      return `<div class="input-error">${message}</div>`
+      return `<div class="input-error"><i class="fa-solid fa-triangle-exclamation"></i>${message}<i class="fa-solid fa-triangle-exclamation"></i></div>`
     }
 
     if (entryText.length > 140) {
@@ -121,7 +122,7 @@ $(document).ready(function() {
     } 
     
     if (!entryText) {
-      $(errorContainer).prepend(errorMessage("You can't say NOTHING. Please write at least one character."));
+      $(errorContainer).prepend(errorMessage('You can\'t say "NOTHING". Please write at least one character.'));
       return;
     }
 
