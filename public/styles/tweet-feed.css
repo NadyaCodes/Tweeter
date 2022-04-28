@@ -81,3 +81,21 @@ article footer {
 .fa-heart:hover {
   color: #d94a4a;
 }
+
+
+/* Desktop formatting  */
+@media only screen and (min-width: 1024px) {
+
+  article header {
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tweets header {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+  }
+
+}

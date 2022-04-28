@@ -42,3 +42,19 @@ main {
   position: relative;
   top: 120px; 
 }
+
+
+/* Desktop formatting */
+
+@media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .container {
+    margin: 3rem;
+  }
+}
