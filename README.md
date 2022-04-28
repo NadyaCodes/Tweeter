@@ -9,7 +9,7 @@ The front end was styled by me (with some help from Lighthouse Labs), and it was
 ## Screenshots
 !["Screenshot of Mobile Page"](https://github.com/NadyaCodes/Tweeter/blob/main/docs/tweeter-5.png?raw=true)
 !["Screenshot of long tweet"](https://github.com/NadyaCodes/Tweeter/blob/main/docs/tweeter-3.png?raw=true)
-!["Screenshot of nothing to say"](https://github.com/NadyaCodes/Tweeter/blob/main/docs/tweeter-3.png?raw=true)
+!["Screenshot of nothing to say"](https://github.com/NadyaCodes/Tweeter/blob/main/docs/tweeter-2.png?raw=true)
 
 ## Dependencies
 
