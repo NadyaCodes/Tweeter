@@ -62,11 +62,6 @@ button {
   color: red;
 }
 
-
-.error {
-  margin: .5em;
-  width: 100%;
-  background-color: rgb(254, 155, 155);
-  /* border-width: 2px; */
-  
+.input-error {
+  background-color: red;
 }
