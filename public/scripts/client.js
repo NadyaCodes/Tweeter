@@ -6,6 +6,8 @@
 
 // const { json } = require("express/lib/response");
 
+
+//sets up time ago
 var locale = function(number, index, totalSec) {
   // number: the time ago / time in number;
   // index: the index of array below;
@@ -29,6 +31,8 @@ var locale = function(number, index, totalSec) {
 };
 timeago.register('pt_BR', locale);
 
+
+//functions for document
 $(document).ready(function() {
   
   console.log("client is ready");
@@ -38,7 +42,6 @@ $(document).ready(function() {
       name: tweetObj.user.name,
       username: tweetObj.user.handle,
       "single-tweet": tweetObj.content.text,
-      
       "date-posted": timeago.format(tweetObj.created_at, 'pt_BR'),
       "small-avatar": tweetObj.user.avatars
     };
@@ -75,12 +78,22 @@ $(document).ready(function() {
   };
 
   // renderTweets(data);
-  
-
   const submitTweet = function(event) {
     event.preventDefault();
-
     const formData = $(this).serialize();
+    const entryText = formData.slice(5)
+
+
+    if (entryText.length > 140) {
+      alert("You write too much. Please keep your thoughts to 140 characters or less.")
+      return;
+    } 
+    
+    if (!entryText) {
+      alert("You can't say NOTHING. Please write at least one character.")
+      return;
+    }
+
 
     $.ajax({
       method: "POST",
@@ -88,16 +101,19 @@ $(document).ready(function() {
       url: "/tweets",
     })
 
-      console.log(formData)
-    
+    console.log(formData)
   }
+
+
   $(".form-inline").submit(submitTweet);
+  
 
   const loadTweets = function () {
     $.ajax('./tweets', { method: 'GET' })
     .then(function (data) {
       renderTweets(data)
-    });
+    })
+    .catch((err) => console.log(err));
   }
 
   loadTweets()

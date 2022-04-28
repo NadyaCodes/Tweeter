@@ -1,20 +1,25 @@
-let counter = 140
+// let counter = 140
 $(document).ready(function() {
   console.log("ready is ready")
 
 
-  $('#tweet-text').on('keypress', function() {
+  $('.new-tweet').on('keyup', "textarea", function() {
+     
 
-    counter--
-    console.log(counter)
+    let textL = this.textLength;
 
-    if (counter < 0) {
-      $('output.negative-counter').text(counter)
-      
+    let charsLeft = 140 - textL;
+
+    $('output.counter').text(charsLeft)
+
+
+    if (charsLeft < 0) {
+      $( 'output.counter' ).addClass( "negative-counter" );
+
     } else {
-      $('output.counter').text(counter)
+      $( 'output.counter' ).removeClass( "negative-counter" );
     }
-    
+      
   })
 
 })
