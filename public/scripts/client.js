@@ -37,6 +37,8 @@ $(document).ready(function() {
   
   console.log("client is ready");
 
+
+
   const createTweetElement = function(tweetObj) {
     const person = {
       name: tweetObj.user.name,
@@ -70,14 +72,27 @@ $(document).ready(function() {
     return markup;
   };
 
+
+
   const renderTweets = function(tweetsArray) {
     for (let i = 0; i < tweetsArray.length; i++) {
       const newTweet = createTweetElement(tweetsArray[i]);
-      $('#tweets-container').append(newTweet);
+      $('#tweets-container').prepend(newTweet);
     }
   };
 
-  // renderTweets(data);
+
+  const loadTweets = function () {
+    $.ajax('./tweets', { method: 'GET' })
+    .then(function (data) {
+      renderTweets(data)
+    })
+    .catch((err) => console.log(err));
+  }
+
+  loadTweets()
+
+
   const submitTweet = function(event) {
     event.preventDefault();
     const formData = $(this).serialize();
@@ -94,29 +109,44 @@ $(document).ready(function() {
       return;
     }
 
+    // $.ajax({
+    //   method: "POST",
+    //   data: formData,
+    //   url: "/tweets",
+      
+    // })
+
+
+
 
     $.ajax({
       method: "POST",
       data: formData,
       url: "/tweets",
+    }).then(() => {
+      // console.log("hi")
+      $.ajax('./tweets', { method: 'GET' })
+      .then(function (data) {
+        // console.log("data, ", data[data.length - 1])
+        const newTweet = createTweetElement(data[data.length - 1])
+        $('#tweets-container').prepend(newTweet)
+      })
+      .catch((err) => console.log(err));
     })
 
-    console.log(formData)
+    // $.ajax('./tweets', { method: 'GET' })
+    // .then(function (data) {
+    //   $('#tweets-container').prepend(data[0])
+    // })
+    // .catch((err) => console.log(err));
+
+    // $('#tweets-container').prepend("newTweet");
+    // $(".form-inline").append() 
+
+
   }
 
 
-  $(".form-inline").submit(submitTweet);
-  
-
-  const loadTweets = function () {
-    $.ajax('./tweets', { method: 'GET' })
-    .then(function (data) {
-      renderTweets(data)
-    })
-    .catch((err) => console.log(err));
-  }
-
-  loadTweets()
-
+  $(".form-inline").submit(submitTweet)
 
 });

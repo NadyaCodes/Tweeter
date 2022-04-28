@@ -11,7 +11,7 @@
   padding: 0.5em;
 }
 
-.tweets:hover {
+.tweets article:hover {
   box-shadow: 4px 4px #aeadc2;
 }
 
