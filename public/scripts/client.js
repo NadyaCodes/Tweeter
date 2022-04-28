@@ -137,6 +137,8 @@ $(document).ready(function() {
       .then(function (data) {
         const newTweet = createTweetElement(data[data.length - 1])
         $('#tweets-container').prepend(newTweet)
+        $('#tweet-text').val('')
+        $('.counter').val(140)
       })
       .catch((err) => console.log(err));
     })
