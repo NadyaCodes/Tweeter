@@ -38,26 +38,24 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
-      <div class="write-new">
-        <div><strong>Write</strong> a new tweet</div>
-        <div><i class="fa-solid fa-angles-down"></i></div>
-      </div>
+      <button class="write-new">
+          <div><strong>Write</strong> a new tweet</div>
+          <div><i class="fa-solid fa-angles-down"></i></div>
+      </button>
     </nav>
 
     <header>
       <div class="avatar">
           <img src="/images/profile-hex.png"> 
       </div>
-      <br>
       <div class="user-name">
-          <h2>Your Name</h2>
+          <h2>This Is My Name</h2>
       </div>
     </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
         <form class="form-inline" action="/tweets" method="POST">
           <label for="tweet-text"></label>
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>

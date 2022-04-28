@@ -1,60 +1,39 @@
+/* New tweet box */
 .new-tweet {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
-
-
+/* Tweet box input */
 #tweet-text {
   width: 100%;
-  border-color: #000000;
+  border-color: #545149;
   background-color: #f4f1ec;
-  /* background: #FF00FF; */
   outline: 0;
-  /* padding: 0; */
-  border-width: 0 0 2px;
-  font-family: 'Source Sans Pro', sans-serif;
+  border-width: 0 0 .2rem;
   resize: none;
-
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-    justify-content: center; */
-
 }
 
-.form-inline {
-  width: 100%;
 
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  /* justify-content: center; */
-}
-
-button {
-  background-color: #4056A1;
-  color: #FFFFFF;
-  font-family: 'Bungee', sans-serif;
-  border: 0;
-
-}
-
+/* button with character count */
 .form-inline div {
-  /* width: 100%; */
-  /* background: #00FFFF; */
   font-family: 'Bungee', sans-serif;
-  padding-top: 0.5em;
+  padding-top: 0.5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
+section.new-tweet button {
+  background-color: #4056A1;
+  color: #FFFFFF;
+  border: 0;
+  padding: .4rem;
+
+}
+
 .counter {
-  /* background: #00FFFF; */
   color: #545149;
 }
 
@@ -62,15 +41,16 @@ button {
   color: red;
 }
 
+
+/* error message */
 div.input-error {
-  margin: 2em;
-  padding: .5em;
+  margin-bottom: 2rem;
+  padding: .6rem;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: .7em;
+  font-size: 1.1rem;
   color: #000000;
   background-color: #fba1a1;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-
 }

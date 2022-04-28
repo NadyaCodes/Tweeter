@@ -1,7 +1,8 @@
 nav {
   color: #FFFFFF;
   height: 120px;
-  padding: 1.5em;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
   width: 100%;
   background: #4056A1;
   display: flex;
@@ -12,12 +13,18 @@ nav {
   top: 0; 
 }
 
+/* Tweeter "title"  */
 nav > span {
   font-family: 'Bungee', sans-serif;
 }
 
+
+/* Write new button */
 .write-new {
   font-family: 'Source Sans Pro', sans-serif;
+  background: #4056A1;
+  color: #FFFFFF;
+  border: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
